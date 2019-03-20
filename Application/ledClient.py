@@ -3,13 +3,6 @@
 # This code runs on yoru VM and sends requests to the Raspberry Pi to turn on 
 # and off the Grove LED using TCP packets.
 
-#Team Members:
-#Jeff Cui 
-#Luis Ortiz
-
-#Insert Github repository link here.
-#https://github.com/usc-ee250-fall2018/grovepi-lab03-gubohwatch3.git
-
 import socket
 
 def Main():

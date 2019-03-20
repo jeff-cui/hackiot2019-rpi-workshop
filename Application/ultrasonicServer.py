@@ -3,13 +3,6 @@
 # This code runs on your VM and receives a stream of packets holding ultrasonic
 # sensor data and prints it to stdout. Use a UDP socket here.
 
-#Team Members:
-#Jeff Cui 
-#Luis Ortiz
-
-#Insert Github repository link here.
-#https://github.com/usc-ee250-fall2018/grovepi-lab03-gubohwatch3.git
-
 import socket
 
 def Process1():

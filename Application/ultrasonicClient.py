@@ -4,13 +4,6 @@
 # the Grove Ultrasonic Ranger and sends the reading to the Ultrasonic Sensor 
 # Server running on your VM via UDP packets. 
 
-#Team Members:
-#Jeff Cui 
-#Luis Ortiz
-
-#Insert Github repository link here.
-#https://github.com/usc-ee250-fall2018/grovepi-lab03-gubohwatch3.git
-
 import sys
 # By appending the folder of all the GrovePi libraries to the system path here,
 # we are able to successfully `import grovepi`

@@ -3,13 +3,6 @@
 # This program runs on the Raspberry Pi and accepts requests to turn on and off
 # the LED via TCP packets.
 
-#Team Members:
-#Jeff Cui 
-#Luis Ortiz
-
-#Insert Github repository link here.
-#https://github.com/usc-ee250-fall2018/grovepi-lab03-gubohwatch3.git
-
 import sys
 # By appending the folder of all the GrovePi libraries to the system path here,
 # we are successfully `import grovepi`
