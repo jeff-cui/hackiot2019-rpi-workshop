@@ -1,15 +1,5 @@
-"""Example python3 client-side socket program using TCP from the tutorial video 
-below.
+"""TCP Client"""
 
-https://www.youtube.com/watch?v=bTThyxVy7Sk&index=6&list=PL1A2CSdiySGIPxpSlgzsZiWDavYTAx61d
-"""
-
-"""python3 in Ubuntu (and other linux distros) will look in a default set of
-directories for libraries when a program tries to import one. Examples of some
-default directories are:
-  /usr/lib/python3.5
-  /usr/local/lib/python3.5/dist-packages
-"""
 import socket
 
 def Main():
@@ -19,15 +9,24 @@ def Main():
     host = '127.0.0.1'
     port = 5000
 
+    #Create a socket and connect to our host and port, this will then connect to our server
     s = socket.socket() #by default, the socket constructor creates an TCP/IPv4 socket
     s.connect((host,port))
 
+    """Input messages to send to server"""
     message = input("-> ")
+
+    """As long as message is not q then we send to the server, and display the feedback from the server"""
     while message != 'q':
+        #Send
         s.send(message.encode('utf-8')) 
+        
+        #Receive feedback
         #1024 is the receive buffer size. It's enough for us, and it's a nice number. 
         data = s.recv(1024).decode('utf-8') 
         print("Received from server: " + data)
+
+        #Get ready to send another message
         message = input("-> ")
     s.close()
 
