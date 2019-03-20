@@ -13,10 +13,11 @@ import socket
 
 def Main():
 	#Setup host as Luis's RPI and port
+    #CODE TO DELETE
     host = '192.168.1.126'
     port = 5000
 
-    #Bind socket
+    #Bind socket, CODE TO DELETE
     s = socket.socket()
     s.bind((host,port))
 
@@ -24,7 +25,7 @@ def Main():
     led = 7
     grovepi.pinMode(led,"OUTPUT")
 
-    #Listen to connect
+    #Listen to connect, CODE TO DELETE
     s.listen(1)
     c, addr = s.accept()
     print("Connection from: " + str(addr))
@@ -37,10 +38,10 @@ def Main():
             break
         print("From connected user: " + data)
         
-        #Sendback message to check
+        #Sendback message to check, initialize, CODE TO DELETE
         sendback = ""
 
-        #If LED ON then turn on LED
+        #If LED ON then turn on LED, CODE TO DELETE
         if(data == "LED_ON"): 
         	grovepi.digitalWrite(led,1)
         	sendback = "LED_ON Success"
@@ -52,7 +53,7 @@ def Main():
         else:
         	sendback = "Command Not Recognized"
 
-        #Send the response back
+        #Send the response back, CODE TO DELETE
         c.send(sendback.encode('utf-8'))
     c.close()
 

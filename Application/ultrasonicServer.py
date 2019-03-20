@@ -6,11 +6,11 @@
 import socket
 
 def Process1():
-    #Port is 9005 and host is VM IP address 
+    #Port is 9005 and host is VM IP address, CODE TO DELETE
     host = '10.0.2.15'
     port = 9005
 
-    #Bind socket
+    #Bind socket, CODE TO DELETE
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind((host,port))
 

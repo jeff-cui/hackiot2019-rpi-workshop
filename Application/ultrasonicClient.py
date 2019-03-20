@@ -15,14 +15,14 @@ import time
 
 def Main():
     #Change the host and port as needed. Client port use 1024
-    #Host is raspberry pi of Luis Ortiz
+    #Host is raspberry pi of Luis Ortiz, CODE TO DELETE
     host = '192.168.1.126'
     port = 1024
 
-    #Server address is LAN of Luis's computer
+    #Server address is LAN of Luis's computer, CODE TO DELETE
     server_addr = '192.168.1.109'
 
-    #Bind socket
+    #Bind socket, CODE TO DELETE
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
     s.bind((host,port))
 
@@ -30,11 +30,11 @@ def Main():
     ultrasonic_ranger = 4
     grovepi.pinMode(ultrasonic_ranger,"INPUT")
 
-    #Enter the destination port which is 8050 or 8051
+    #Enter the destination port which is 8050 or 8051, CODE TO DELETE
     dst_port = input("destination port-> ")
 
     while True:
-        #Specifies udpServer1 or 2
+        #Specifies udpServer1 or 2, CODE TO DELETE
         server = (server_addr, int(dst_port))
 
         #Read ultrasonic and format for transmission
