@@ -6,7 +6,7 @@
 import socket
 
 def Process1():
-    #Setup variable "host" and "port"
+    #Setup variable "host" and "port" [below]
     
 
     #Create socket "s" [below]

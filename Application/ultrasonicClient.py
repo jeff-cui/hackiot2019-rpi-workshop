@@ -14,28 +14,24 @@ import socket
 import time
 
 def Main():
-    #Change the host and port as needed. Client port use 1024
-    #Host is raspberry pi LAN IP address, per port forwarding CODE TO DELETE
-    host = '192.168.1.126'
-    port = 1024
+    #Create variable "host" and "port" [below]
+    
 
-    #Server address is LAN IP address of host OS, CODE TO DELETE
-    server_addr = '192.168.1.109'
+    #Setup server address [below]
+    
 
-    #Bind socket, CODE TO DELETE
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
-    s.bind((host,port))
+    #Bind socket "s" [below]
 
     #Connect ranger to digital port D4
     ultrasonic_ranger = 4
     grovepi.pinMode(ultrasonic_ranger,"INPUT")
 
-    #Enter the destination port which is 8050 or 8051, CODE TO DELETE
-    dst_port = input("destination port-> ")
+    #Create variable "dst_port" that takes in destination port via input function [below]
+    
 
     while True:
-        #Specifies udpServer1 or 2, CODE TO DELETE
-        server = (server_addr, int(dst_port))
+        #Specifies which udp server to send to via variable "server" [below]
+        
 
         #Read ultrasonic and format for transmission
         reading = grovepi.ultrasonicRead(ultrasonic_ranger)
@@ -47,8 +43,8 @@ def Main():
         #Send it to the server
         s.sendto(message.encode('utf-8'), server) 
 
-        #Sleep and then go again
-        time.sleep(0.2)
+        #Sleep to delay [below]
+        
     s.close()
 
 if __name__ == '__main__':
