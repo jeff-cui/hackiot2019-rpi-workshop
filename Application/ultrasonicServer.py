@@ -6,13 +6,12 @@
 import socket
 
 def Process1():
-    #Port is 9005 and host is VM IP address, CODE TO DELETE
-    host = '10.0.2.15'
-    port = 9005
+    #Setup variable "host" and "port"
+    
 
-    #Bind socket, CODE TO DELETE
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.bind((host,port))
+    #Create socket "s" [below]
+
+
 
     #Start the receiving process
     print("Ultrasonic Server Started")
@@ -20,7 +19,9 @@ def Process1():
     	#Receive data and print it
         data, addr = s.recvfrom(1024)
         data = data.decode('utf-8')
-        print("VM: " + data)
+
+        #Print our data [below]
+
     c.close()
 
 if __name__ == '__main__':

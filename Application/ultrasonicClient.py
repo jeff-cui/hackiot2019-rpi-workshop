@@ -15,11 +15,11 @@ import time
 
 def Main():
     #Change the host and port as needed. Client port use 1024
-    #Host is raspberry pi of Luis Ortiz, CODE TO DELETE
+    #Host is raspberry pi LAN IP address, per port forwarding CODE TO DELETE
     host = '192.168.1.126'
     port = 1024
 
-    #Server address is LAN of Luis's computer, CODE TO DELETE
+    #Server address is LAN IP address of host OS, CODE TO DELETE
     server_addr = '192.168.1.109'
 
     #Bind socket, CODE TO DELETE

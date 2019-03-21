@@ -6,16 +6,15 @@
 import socket
 
 def Main():
-    #Set up host as Luis's RPI and port, CODE TO DELETE
-    host = '192.168.1.126'
-    port = 5000
+    #Set up variable "host" and variable "port" [below]
 
-    #Bind socket, CODE TO DELETE
-    s = socket.socket() 
-    s.connect((host,port))
 
-    #Prompt for message, CODE TO DELETE
-    message = input("Input for LED-> ")
+    #Connect socket variable "s" [below]
+
+
+    #Prompt for variable "message" with input function [below]
+
+
     while message != 'q':
     	#Send the message
         s.send(message.encode('utf-8')) 
@@ -24,8 +23,9 @@ def Main():
         data = s.recv(1024).decode('utf-8') 
         print("Received from LED server: " + data)
 
-        #Take another message
-        message = input("Input for LED-> ")
+        #Take another message [below]
+        
+        
     s.close()
 
 if __name__ == '__main__':

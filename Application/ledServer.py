@@ -12,22 +12,20 @@ import grovepi
 import socket
 
 def Main():
-	#Setup host as Luis's RPI and port
-    #CODE TO DELETE
-    host = '192.168.1.126'
-    port = 5000
+	#Create variable "host" and variable "port" [below]
+    
 
-    #Bind socket, CODE TO DELETE
-    s = socket.socket()
-    s.bind((host,port))
+
+    #Create and bind socket "s" [below]
+
 
     #Initialize LED as digital port D7
     led = 7
     grovepi.pinMode(led,"OUTPUT")
 
-    #Listen to connect, CODE TO DELETE
-    s.listen(1)
-    c, addr = s.accept()
+    #Listen to connect on socket "s" [below]
+    
+
     print("Connection from: " + str(addr))
 
     #While true, receive data
@@ -38,23 +36,23 @@ def Main():
             break
         print("From connected user: " + data)
         
-        #Sendback message to check, initialize, CODE TO DELETE
-        sendback = ""
+        #Initialize sendback message variable "sendback" [below]
+        
 
-        #If LED ON then turn on LED, CODE TO DELETE
-        if(data == "LED_ON"): 
+        #If LED ON then turn on LED, fill in the blanks below
+        if(data == ""): 
         	grovepi.digitalWrite(led,1)
-        	sendback = "LED_ON Success"
-        #Else if LED OFF then turn it off
-        elif(data == "LED_OFF"):
+        	sendback = ""
+        #Else if LED OFF then turn it off, fill in the blanks below
+        elif(data == ""):
         	grovepi.digitalWrite(led,0)
-        	sendback = "LED_OFF Success"
-        #Else, it's not good
+        	sendback = ""
+        #Else, it's not good, fill in the blank
         else:
-        	sendback = "Command Not Recognized"
+        	sendback = ""
 
-        #Send the response back, CODE TO DELETE
-        c.send(sendback.encode('utf-8'))
+        #Send the "sendback" back [below]
+        
     c.close()
 
 if __name__ == '__main__':
