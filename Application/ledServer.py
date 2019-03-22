@@ -3,6 +3,13 @@
 # This program runs on the Raspberry Pi and accepts requests to turn on and off
 # the LED via TCP packets.
 
+#Team Members:
+#Jeff Cui 
+#Luis Ortiz
+
+#Insert Github repository link here.
+#https://github.com/usc-ee250-fall2018/grovepi-lab03-gubohwatch3.git
+
 import sys
 # By appending the folder of all the GrovePi libraries to the system path here,
 # we are successfully `import grovepi`
@@ -12,20 +19,21 @@ import grovepi
 import socket
 
 def Main():
-	#Create variable "host" and variable "port" [below]
-    
+	#Setup host as RPI IP address and port 5000
+    host = '192.168.1.126'
+    port = 5000
 
-
-    #Create and bind socket "s" [below]
-
+    #Bind socket
+    s = socket.socket()
+    s.bind((host,port))
 
     #Initialize LED as digital port D7
     led = 7
     grovepi.pinMode(led,"OUTPUT")
 
-    #Listen to connect on socket "s" [below]
-    
-
+    #Listen to connect
+    s.listen(1)
+    c, addr = s.accept()
     print("Connection from: " + str(addr))
 
     #While true, receive data
@@ -36,23 +44,23 @@ def Main():
             break
         print("From connected user: " + data)
         
-        #Initialize sendback message variable "sendback" [below]
-        
+        #Sendback message to check
+        sendback = ""
 
-        #If LED ON then turn on LED, fill in the blanks below
-        if(data == ""): 
+        #If LED ON then turn on LED
+        if(data == "LED_ON"): 
         	grovepi.digitalWrite(led,1)
-        	sendback = ""
-        #Else if LED OFF then turn it off, fill in the blanks below
-        elif(data == ""):
+        	sendback = "LED_ON Success"
+        #Else if LED OFF then turn it off
+        elif(data == "LED_OFF"):
         	grovepi.digitalWrite(led,0)
-        	sendback = ""
-        #Else, it's not good, fill in the blank
+        	sendback = "LED_OFF Success"
+        #Else, it's not good
         else:
-        	sendback = ""
+        	sendback = "Command Not Recognized"
 
-        #Send the "sendback" back [below]
-        
+        #Send the response back
+        c.send(sendback.encode('utf-8'))
     c.close()
 
 if __name__ == '__main__':
